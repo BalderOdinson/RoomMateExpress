@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/linearLayout1">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            local:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            local:navigationIcon="@drawable/arrow_left"
+            android:forceHasOverlappingRendering="true"
+            android:layout_marginLeft="0.0dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:translationX="-20dp">
+              <FFImageLoading.Cross.MvxCachedImageView
+                  android:id="@+id/chatImage"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:maxHeight="40dp"
+                    android:maxWidth="40dp"
+                    android:layout_gravity="center_horizontal"
+                    android:elevation="8dp"
+                    local:civ_border_color="#97BBF4"
+                    local:civ_border_width="2dp"
+                    local:MvxBind="Transformations Transformations; ImagePath Chat.PictureUrl; LoadingPlaceholderImagePath 'res:loading.gif'; ErrorPlaceholderImagePath 'res:error_placeholder.png'" />
+                <TextView
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/title"
+                    android:layout_toRightOf="@id/chatImage"
+                    local:MvxBind="Text Chat.Name"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="6dp" />
+            </RelativeLayout>
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+    <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
+        android:id="@+id/my_recycler_view"
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        local:MvxBind="ItemsSource MessageItemViewModels"
+        android:layout_marginTop="4dp"
+        android:layout_gravity="fill"
+        android:layout_weight="5" />
+    <LinearLayout
+        android:id="@+id/messageBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="bottom"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="@drawable/edit_text_rect"
+        android:orientation="horizontal"
+        android:layout_margin="6dp"
+        android:paddingBottom="0dp"
+        android:paddingTop="0dp"
+        android:layout_marginRight="6dp"
+        android:paddingRight="0dp">
+        <EditText
+            android:inputType="textMultiLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/commentEditText"
+            android:layout_marginRight="0.0dp"
+            android:layout_marginLeft="0.0dp"
+            android:layout_marginBottom="0.0dp"
+            android:hint="@string/writeComment"
+            android:layout_weight="2"
+            local:MvxBind="Text Message"
+            android:backgroundTint="#00000000" />
+        <ImageButton xmlns:tools="http://schemas.android.com/tools"
+            android:src="@drawable/send"
+            android:layout_width="45.0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/sendButton"
+            android:background="@null"
+            local:MvxBind="Visibility StringToVisibility(Message); Click SendMessageCommand" />
+    </LinearLayout>
+</LinearLayout>

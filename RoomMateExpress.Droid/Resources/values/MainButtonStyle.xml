@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <style name="MainButtonStyle" parent="android:style/Widget.Button">
+    <item name="android:background">@drawable/LightBlueButton</item>
+    <item name="android:textColor">@color/White</item>
+    <item name="android:layout_height">38.0dp</item>
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_marginRight">46.0dp</item>
+    <item name="android:layout_marginLeft">46.0dp</item>
+  </style>
+</resources>

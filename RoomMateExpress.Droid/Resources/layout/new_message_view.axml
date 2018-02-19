@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/linearLayout1">
+  <LinearLayout
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:layout_width="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <android.support.design.widget.AppBarLayout
+      android:id="@+id/appBar"
+      android:minHeight="25px"
+      android:minWidth="25px"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:focusable="true"
+      android:focusableInTouchMode="true"
+      android:background="@color/White">
+      <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        local:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        local:navigationIcon="@drawable/arrow_left"
+        local:title="@string/newMessageGroup"
+        local:contentInsetEnd="15dp"
+        local:contentInsetLeft="0dp"
+        local:contentInsetStart="0dp"
+        local:contentInsetStartWithNavigation="0dp" />
+    </android.support.design.widget.AppBarLayout>
+    <ScrollView
+      android:layout_height="match_parent"
+      android:layout_width="match_parent">
+      <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout2">
+          <FFImageLoading.Cross.MvxCachedImageView
+              android:src="@drawable/group_chat"
+              android:background="@null"
+              local:MvxBind="Transformations Transformations; TransformPlaceholders 'True'; ImagePath Chat.PictureUrl; Click AddPictureCommand; LoadingPlaceholderImagePath 'res:loading.gif'; ErrorPlaceholderImagePath 'res:error_placeholder.png'"
+              android:layout_height="80dp"
+              android:layout_width="80dp"
+              android:maxHeight="70dp"
+              android:maxWidth="70dp"
+              android:layout_marginLeft="40dp"
+              android:layout_marginTop="40dp"
+              local:civ_border_color="#97BBF4"
+              local:civ_border_width="2dp"
+              android:id="@+id/mvxCircleImageView1" />
+          <EditText
+              android:layout_width="fill_parent"
+              android:layout_height="match_parent"
+              android:id="@+id/groupNameText"
+              android:layout_marginLeft="25dp"
+              android:layout_marginBottom="15dp"
+              android:layout_marginRight="25dp"
+              android:hint="@string/groupName"
+              local:MvxBind="Text Chat.Name"
+              android:layout_marginTop="50dp" />
+        </LinearLayout>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/personSearchText"
+            android:hint="@string/addToGroup"
+            android:layout_margin="40dp"
+            local:MvxBind="Text SearchText; ItemsSource ItemsSource" />
+       <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
+          android:id="@+id/addedPeopleRecycler"
+          android:layout_margin="5dp"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          local:MvxItemTemplate="@layout/message_group_item"
+          local:MvxBind="ItemsSource MessageGroupItems; ItemClick RemoveItemCommand"/>
+        <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
+            android:id="@+id/recyclerView"
+            android:scrollbars="vertical"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            local:MvxItemTemplate="@layout/new_message_item"
+            local:MvxBind="ItemsSource NewMessageItems; ItemClick AddItemCommand" />
+      </LinearLayout>
+    </ScrollView>
+  </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

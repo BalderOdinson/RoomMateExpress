@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "464583508784",
+    "firebase_url": "https://roommateexpress-184bd.firebaseio.com",
+    "project_id": "roommateexpress-184bd",
+    "storage_bucket": "roommateexpress-184bd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:464583508784:android:38f8ee2e5cf42192",
+        "android_client_info": {
+          "package_name": "com.roommateexpress.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "464583508784-7b8vffcsr0vbu8oon4inmae8c2aiqiif.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcdCDk5PRPKI0-ddEqRrtDxUdusmPLMDU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

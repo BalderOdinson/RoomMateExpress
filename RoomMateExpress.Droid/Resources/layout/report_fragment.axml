@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                 xmlns:local="http://schemas.android.com/apk/res-auto"
+                                                 android:layout_width="match_parent"
+                                                 android:layout_height="match_parent">
+<GridLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/gridLayout1"
+    android:columnCount="3"
+    android:useDefaultMargins="true"
+    android:rowCount="5"
+    android:padding="15dp">
+    <TextView
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/userReporting"
+        android:layout_column="0"
+        android:layout_row="0"
+        android:layout_columnWeight="1"
+        local:MvxBind="Text Format('{0} {1}', Report.UserReporting.FirstName, Report.UserReporting.LastName)"/>
+    <TextView
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/userReported"
+        android:layout_column="2"
+        android:layout_row="0"
+        android:layout_columnWeight="1"
+        local:MvxBind="Text Format('{0} {1}', Report.UserReported.FirstName, Report.UserReported.LastName)"/>
+    <TextView
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/admin"
+        android:layout_column="1"
+        android:layout_columnWeight="1"
+        android:layout_row="1" 
+        local:MvxBind="Text Format('{0} {1}', Report.Admin.FirstName, Report.Admin.LastName)"/>
+    <TextView
+        android:text="Small Text"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/dateReport"
+        android:layout_column="0"
+        android:layout_columnWeight="1"
+        android:layout_row="2" 
+        local:MvxBind="Text Report.DateReporting"/>
+    <TextView
+        android:text="Small Text"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/dateProcessed"
+        android:layout_column="2"
+        android:layout_columnWeight="1"
+        android:layout_row="2"
+        local:MvxBind="Visibility Visibilitiy(Report.IsProcessed); Text Report.DateProcessed"/>
+    <TextView
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/text"
+        android:layout_column="0"
+        android:layout_columnSpan="3"
+        android:layout_columnWeight="1"
+        android:layout_row="3"
+        local:MvxBind="Text Report.Text"/>
+    <GridLayout
+        android:id="@+id/gridLayout2"
+        android:layout_column="0"
+        android:layout_columnSpan="3"
+        android:layout_columnWeight="1"
+        android:layout_row="4"
+        android:columnCount="2"
+        android:useDefaultMargins="true"
+        local:MvxBind="Visibility Visibility(Report.IsProcessed)">
+        <Button
+            android:text="@string/processReport"
+            android:id="@+id/ban"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:background="@null"
+            local:MvxBind="Click ProcessReportCommand" />
+        <Button
+            android:text="@string/ignore"
+            android:id="@+id/ignore"
+            android:layout_column="1"
+            android:background="@null"
+            android:layout_columnWeight="1"
+            local:MvxBind="Click IgnoreCommand" />
+    </GridLayout>
+</GridLayout>
+  <ImageButton
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:src="@drawable/arrow_left"
+    android:background="@null"
+    local:layout_anchor="@id/gridLayout1"
+    local:layout_anchorGravity="top|right|start"
+    local:MvxBind="Click CloseCommand"/>
+</android.support.design.widget.CoordinatorLayout>

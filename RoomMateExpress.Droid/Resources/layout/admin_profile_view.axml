@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_light"
+    android:fitsSystemWindows="true">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_height="300dp"
+        android:layout_width="match_parent"
+        android:fitsSystemWindows="true">
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsingToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            local:layout_scrollFlags="scroll|exitUntilCollapsed"
+            android:fitsSystemWindows="true"
+            local:contentScrim="?attr/colorPrimary"
+            local:expandedTitleMarginStart="36dp"
+            local:expandedTitleMarginEnd="48dp"
+            local:expandedTitleMarginBottom="15dp"
+            local:toolbarId="@+id/nameToolbar"
+            android:foregroundTint="@color/LightBlue"
+            local:theme="@style/Theme.Splash">
+          <FFImageLoading.Cross.MvxCachedImageView
+              android:id="@+id/profileImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:fitsSystemWindows="true"
+                android:maxHeight="1920px"
+                android:maxWidth="1920px"
+                local:layout_collapseMode="parallax"
+                local:MvxBind="ImagePath User.ProfilePictureUrl; LoadingPlaceholderImagePath 'res:loading.gif'; ErrorPlaceholderImagePath 'res:error_placeholder.png'" />
+            <View
+                android:id="@+id/view1"
+                android:layout_width="match_parent"
+                android:background="@color/White"
+                android:layout_height="?attr/actionBarSize"
+                android:scaleType="centerCrop"
+                android:fitsSystemWindows="true"
+                local:layout_collapseMode="parallax"
+                android:layout_gravity="bottom"
+                android:alpha="0.3" />
+            <android.support.v7.widget.Toolbar
+                android:id="@id/nameToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                local:titleTextColor="@color/LightBlue"
+                local:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                local:layout_collapseMode="pin"
+                local:navigationIcon="@drawable/arrow_left"
+                local:MvxBind="Title Format('{0} {1}', User.FirstName, User.LastName)" />
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+    <android.support.v4.widget.NestedScrollView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/nestedScrollView"
+        local:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <LinearLayout
+            android:id="@+id/nestedscrollLayout"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:orientation="vertical">
+            <android.support.v7.widget.CardView
+                android:id="@+id/descriptionCardView"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_margin="10dp"
+                android:padding="15dp">
+                <GridLayout
+                    android:id="@+id/descriptionLayout"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:columnCount="2"
+                    android:rowCount="3"
+                    android:useDefaultMargins="true"
+                    android:padding="15dp">
+                    <LinearLayout
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_columnWeight="1">
+                        <TextView
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:id="@+id/age"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:text="@string/age"
+                            android:layout_marginLeft="0.0dp" />
+                        <TextView
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:id="@+id/ageText"
+                            android:layout_marginLeft="7.5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            local:MvxBind="Text User.Age" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_columnWeight="1">
+                        <TextView
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:id="@+id/gender"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:text="@string/isGender"
+                            android:layout_marginLeft="0.0dp" />
+                        <TextView
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:id="@+id/genderText"
+                            android:layout_marginLeft="7.5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            local:MvxBind="Text EnumToString(User.Gender)" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_columnWeight="1">
+                        <TextView
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:id="@+id/smoker"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:text="@string/smoker"
+                            android:layout_marginLeft="0.0dp" />
+                        <TextView
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:id="@+id/smokeText"
+                            android:layout_marginLeft="7.5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            local:MvxBind="Text BoolToString(User.IsSmoker)" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_columnWeight="1">
+                        <TextView
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:id="@+id/student"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:text="@string/student"
+                            android:layout_marginLeft="0.0dp" />
+                        <TextView
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:id="@+id/smokeText"
+                            android:layout_marginLeft="7.5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            local:MvxBind="Text BoolToString(User.HasFaculty)" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_columnWeight="1"
+                        android:layout_columnSpan="2">
+                        <TextView
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:id="@+id/occupation"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:text="@string/occupation"
+                            android:layout_marginLeft="0.0dp" />
+                        <TextView
+                            android:id="@+id/occupationText"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            local:MvxBind="Text User.DescriptionOfStudyOrWork"
+                            android:layout_marginLeft="7.5dp" />
+                    </LinearLayout>
+                </GridLayout>
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_marginBottom="10dp"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cardView1">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/linearLayout1"
+                    android:padding="15dp">
+                    <TextView
+                        local:MvxBind="Text User.AverageGrade"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/avgRatingText" />
+                    <RatingBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8.0dp"
+                        android:progressTint="@color/LightBlue"
+                        android:isIndicator="true"
+                        local:MvxBind="Rating User.AverageGrade"
+                        android:max="5"
+                        android:id="@+id/avgRatingBar"
+                        style="@style/Widget.AppCompat.RatingBar.Small" />
+                    <TextView
+                        android:text="@string/comments"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/CommentText"
+                        local:MvxBind="Click ViewCommentsCommand"
+                        android:layout_marginLeft="60dp" />
+                    <TextView
+                        android:text="500"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/numOfComments"
+                        android:layout_marginLeft="3dp"
+                        local:MvxBind="Click ViewCommentsCommand; Text User.CommentsOnProfileCount" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                android:id="@+id/postsView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minWidth="20px"
+                android:minHeight="20px"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                local:MvxBind="Click ViewPostsCommand">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="15dp">
+                    <TextView
+                        android:id="@+id/viewPostsText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/posts"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+                    <ImageView
+                        android:src="@drawable/arrow_left"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageView1"
+                        android:layout_alignParentRight="true"
+                        android:rotation="180" />
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                android:id="@+id/banView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minWidth="20px"
+                android:minHeight="20px"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                local:MvxBind="Click BanUserDialogCommand">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="15dp">
+                    <TextView
+                        android:id="@+id/viewPostsText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/banUser"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+                    <ImageView
+                        android:src="@drawable/close"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:tint="#ffadd8e6" />
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</android.support.design.widget.CoordinatorLayout>

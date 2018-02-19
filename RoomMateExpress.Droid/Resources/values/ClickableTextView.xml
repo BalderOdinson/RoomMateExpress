@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <style name="ClickableTextView">
+    <item name="android:clickable">true</item>
+    <item name="android:textColor">@color/White</item>
+  </style>
+</resources>

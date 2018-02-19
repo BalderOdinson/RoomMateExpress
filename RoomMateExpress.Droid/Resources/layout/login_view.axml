@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:id="@+id/relativeLayout1">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:alpha="1"
+        android:gravity="center"
+        android:layout_centerVertical="true">
+        <EditText
+            android:inputType="textEmailAddress"
+            android:layout_height="wrap_content"
+            android:id="@+id/emailEditText"
+            android:hint="@string/email"
+            local:MvxBind="Text Email; Error Errors['Email']"
+            style="@style/IntroEditTextStyle"
+            android:layout_marginBottom="9.0dp"
+            android:layout_gravity="center" />
+        <EditText
+            android:inputType="textPassword"
+            android:layout_height="wrap_content"
+            android:id="@+id/passwordEditText"
+            android:hint="@string/password"
+            local:MvxBind="Text Password; Error Errors['Password']"
+            style="@style/IntroEditTextStyle"
+            android:layout_marginBottom="20.0dp"
+            android:layout_gravity="center" />
+        <Button
+            android:text="@string/signin"
+            android:id="@+id/signInButton"
+            android:layout_gravity="center"
+            style="@style/MainButtonStyle"
+            local:MvxBind="Click LoginCommand"
+            android:layout_marginTop="2.0dp"
+            android:layout_marginBottom="0.0dp" />
+        <TextView
+            android:text="@string/forgot_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/forgotPasswordTextView"
+            android:layout_marginLeft="0.0dp"
+            android:textAlignment="gravity"
+            android:gravity="center"
+            style="@style/ClickableTextView"
+            android:layout_marginTop="18.0dp"
+            local:MvxBind="Click ForgotPasswordCommand"
+            android:layout_gravity="center" />
+    </LinearLayout>
+    <TextView
+        android:text="@string/register_link"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/registerTextView"
+        android:layout_marginLeft="0.0dp"
+        android:textAlignment="gravity"
+        android:gravity="center"
+        style="@style/ClickableTextView"
+        android:layout_marginTop="0.0dp"
+        local:MvxBind="Click RegisterCommand"
+        android:layout_marginBottom="10.5dp"
+        android:layout_gravity="center"
+        android:layout_weight="0"
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>

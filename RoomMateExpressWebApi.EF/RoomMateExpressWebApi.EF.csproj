@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1A4E51C9-A322-4245-836D-9E16BD426D95}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RoomMateExpressWebApi.EF</RootNamespace>
+    <AssemblyName>RoomMateExpressWebApi.EF</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper, Version=1.50.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.4\lib\net451\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Constants.cs" />
+    <Compile Include="Exceptions\ChatNotFoundException.cs" />
+    <Compile Include="Exceptions\ChatNotSufficientNumberOfUsersException.cs" />
+    <Compile Include="Exceptions\DuplicateRequestException.cs" />
+    <Compile Include="Exceptions\NeighborhoodNotFoundException.cs" />
+    <Compile Include="Exceptions\PostNotFoundException.cs" />
+    <Compile Include="Exceptions\UserNotFoundException.cs" />
+    <Compile Include="Extensions\DapperExtensions.cs" />
+    <Compile Include="Extensions\DapperPostFlags.cs" />
+    <Compile Include="Extensions\EntityExtensions.cs" />
+    <Compile Include="Extensions\FilterManager.cs" />
+    <Compile Include="Extensions\PostSortOptions.cs" />
+    <Compile Include="Extensions\SortFilterExtensions.cs" />
+    <Compile Include="Extensions\SortManager.cs" />
+    <Compile Include="Extensions\SortOrderOption.cs" />
+    <Compile Include="Migrations\201712072341330_DatabaseChange.cs" />
+    <Compile Include="Migrations\201712072341330_DatabaseChange.Designer.cs">
+      <DependentUpon>201712072341330_DatabaseChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712081311325_UserReportChanged2.cs" />
+    <Compile Include="Migrations\201712081311325_UserReportChanged2.Designer.cs">
+      <DependentUpon>201712081311325_UserReportChanged2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801180042183_UserAndPostChanges.cs" />
+    <Compile Include="Migrations\201801180042183_UserAndPostChanges.Designer.cs">
+      <DependentUpon>201801180042183_UserAndPostChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801180108249_UserAndPostChanges2.cs" />
+    <Compile Include="Migrations\201801180108249_UserAndPostChanges2.Designer.cs">
+      <DependentUpon>201801180108249_UserAndPostChanges2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801180352553_ChatChanges.cs" />
+    <Compile Include="Migrations\201801180352553_ChatChanges.Designer.cs">
+      <DependentUpon>201801180352553_ChatChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801190112591_AdminAndUserChange.cs" />
+    <Compile Include="Migrations\201801190112591_AdminAndUserChange.Designer.cs">
+      <DependentUpon>201801190112591_AdminAndUserChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802031902398_ModelChanges.cs" />
+    <Compile Include="Migrations\201802031902398_ModelChanges.Designer.cs">
+      <DependentUpon>201802031902398_ModelChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802111751441_CommentModelsNameChange.cs" />
+    <Compile Include="Migrations\201802111751441_CommentModelsNameChange.Designer.cs">
+      <DependentUpon>201802111751441_CommentModelsNameChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccomodationOptions.cs" />
+    <Compile Include="Models\AccomodationType.cs" />
+    <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\Chat.cs" />
+    <Compile Include="Models\City.cs" />
+    <Compile Include="Models\PostComment.cs" />
+    <Compile Include="Models\ProfileComment.cs" />
+    <Compile Include="Models\Entity.cs" />
+    <Compile Include="Models\Gender.cs" />
+    <Compile Include="Models\Message.cs" />
+    <Compile Include="Models\Neighborhood.cs" />
+    <Compile Include="Models\PetOptions.cs" />
+    <Compile Include="Models\Post.cs" />
+    <Compile Include="Models\PostPicture.cs" />
+    <Compile Include="Models\RoomMateExpressDbContext.cs" />
+    <Compile Include="Models\RoommateStatus.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserReport.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoomMateExpressContextFactory.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Services\AdminService.cs" />
+    <Compile Include="Services\ChatService.cs" />
+    <Compile Include="Services\CityService.cs" />
+    <Compile Include="Services\PostCommentService.cs" />
+    <Compile Include="Services\ProfileCommentService.cs" />
+    <Compile Include="Services\IAdminService.cs" />
+    <Compile Include="Services\IChatService.cs" />
+    <Compile Include="Services\ICityService.cs" />
+    <Compile Include="Services\IPostCommentService.cs" />
+    <Compile Include="Services\IProfileCommentService.cs" />
+    <Compile Include="Services\IMessageService.cs" />
+    <Compile Include="Services\INeighborhoodService.cs" />
+    <Compile Include="Services\IPostPictureService.cs" />
+    <Compile Include="Services\IPostService.cs" />
+    <Compile Include="Services\IUserService.cs" />
+    <Compile Include="Services\IUserReportService.cs" />
+    <Compile Include="Services\MessageService.cs" />
+    <Compile Include="Services\NeighborhoodService.cs" />
+    <Compile Include="Services\PostPictureService.cs" />
+    <Compile Include="Services\PostService.cs" />
+    <Compile Include="Services\UserReportService.cs" />
+    <Compile Include="Services\UserService.cs" />
+    <Compile Include="ViewModels\ChatViewModel.cs" />
+    <Compile Include="ViewModels\PostViewModel.cs" />
+    <Compile Include="ViewModels\UserViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201712072341330_DatabaseChange.resx">
+      <DependentUpon>201712072341330_DatabaseChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712081311325_UserReportChanged2.resx">
+      <DependentUpon>201712081311325_UserReportChanged2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801180042183_UserAndPostChanges.resx">
+      <DependentUpon>201801180042183_UserAndPostChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801180108249_UserAndPostChanges2.resx">
+      <DependentUpon>201801180108249_UserAndPostChanges2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801180352553_ChatChanges.resx">
+      <DependentUpon>201801180352553_ChatChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801190112591_AdminAndUserChange.resx">
+      <DependentUpon>201801190112591_AdminAndUserChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802031902398_ModelChanges.resx">
+      <DependentUpon>201802031902398_ModelChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802111751441_CommentModelsNameChange.resx">
+      <DependentUpon>201802111751441_CommentModelsNameChange.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

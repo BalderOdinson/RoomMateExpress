@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            local:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            local:navigationIcon="@drawable/arrow_left"
+            local:title="@string/editInfo"
+            local:contentInsetEnd="15dp"
+            local:contentInsetLeft="0dp"
+            local:contentInsetStart="0dp"
+            local:contentInsetStartWithNavigation="0dp" />
+    </android.support.design.widget.AppBarLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        local:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:id="@+id/scrollView1"
+        android:minWidth="25px"
+        android:minHeight="25px">
+        <GridLayout
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/gridLayout1"
+            android:columnCount="2"
+            android:rowCount="7"
+            android:padding="40dp"
+            android:useDefaultMargins="false">
+            <View
+                android:id="@+id/view1"
+                android:layout_width="wrap_content"
+                android:layout_column="0"
+                android:layout_row="2"
+                android:layout_columnSpan="2"
+                android:background="@color/LightBlue"
+                android:layout_height="2dp"
+                android:layout_marginTop="10dp" />
+            <Switch
+                android:id="@+id/switch1"
+                android:layout_column="0"
+                android:layout_row="4"
+                android:layout_columnWeight="1"
+                android:layout_marginTop="7.0dp"
+                android:text="@string/isSmoker"
+                local:MvxBind="Checked User.IsSmoker" />
+            <RadioGroup
+                android:id="@+id/radioGroup1"
+                android:layout_column="1"
+                android:layout_columnWeight="1"
+                android:layout_row="4"
+                android:paddingLeft="20dp"
+                android:layout_rowSpan="2">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/male"
+                    android:id="@+id/radioButton1"
+                    local:MvxBind="Checked IsMale" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/female"
+                    android:id="@+id/radioButton2"
+                    local:MvxBind="Checked IsFemale" />
+            </RadioGroup>
+            <TextView
+                android:text="@string/editGender"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:id="@+id/textView1"
+                android:layout_column="1"
+                android:layout_row="3"
+                android:layout_columnWeight="1"
+                android:layout_marginTop="19.5dp"
+                android:layout_marginLeft="20dp" />
+            <Switch
+                android:id="@+id/switch2"
+                android:layout_column="0"
+                android:layout_row="5"
+                android:layout_columnWeight="1"
+                android:layout_marginTop="7dp"
+                android:text="@string/isStudent"
+                local:MvxBind="Checked User.HasFaculty" />
+            <EditText
+                android:inputType="textMultiLine"
+                android:id="@+id/editText4"
+                android:layout_column="0"
+                android:layout_row="6"
+                android:layout_columnSpan="2"
+                android:layout_gravity="fill"
+                android:layout_marginTop="7.0dp"
+                android:hint="@string/collageJob"
+                local:MvxBind="Text User.DescriptionOfStudyOrWork; Error Errors['DescriptionOfStudyOrWork']" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:id="@+id/linearLayout1"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:layout_row="3">
+                <TextView
+                    android:text="@string/birthDate"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textView3"
+                    android:gravity="bottom"
+                    android:layout_marginBottom="5.0dp"
+                    android:layout_marginRight="3.5dp" />
+                <TextView
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textView2"
+                    android:gravity="bottom"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:layout_marginBottom="5.0dp"
+                    local:MvxBind="Text Format('{0:dd/MM/yy}', User.BirthDate); Error Errors['BirthDate']" />
+                <ImageButton
+                    android:src="@drawable/calendar"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:id="@+id/imageButton1"
+                    android:layout_marginLeft="0.0dp"
+                    android:background="@null"
+                    local:MvxBind="Click ChangeDateCommand" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_column="0"
+                android:layout_row="0"
+                android:layout_rowSpan="2"
+                android:layout_columnSpan="2"
+                android:layout_gravity="fill">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+                  <FFImageLoading.Cross.MvxCachedImageView
+                      android:id="@+id/mvxImageView1"
+                        android:src="@drawable/account_icon"
+                        local:MvxBind="Transformations Transformations; ImagePath User.ProfilePictureUrl; LoadingPlaceholderImagePath 'res:loading.gif'; ErrorPlaceholderImagePath 'res:error_placeholder.png'"
+                        android:layout_height="100dp"
+                        android:layout_width="100dp"
+                        android:maxHeight="100dp"
+                        android:maxWidth="100dp"
+                        android:layout_gravity="center"
+                        local:civ_border_color="#97BBF4"
+                        local:civ_border_width="2dp" />
+                    <TextView
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/textView2"
+                        android:gravity="bottom"
+                        android:textColor="@android:color/holo_red_light"
+                        android:layout_marginBottom="5.0dp"
+                        local:MvxBind="Text Errors['ProfilePictureUrl']; Visibility(Errors['ProfilePictureUrl'])" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:paddingLeft="20dp">
+                    <EditText
+                        android:id="@+id/editText1"
+                        android:hint="@string/firstName"
+                        local:MvxBind="Text User.FirstName; Error Errors['FirstName']"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                    <EditText
+                        android:id="@+id/editText2"
+                        android:hint="@string/lastName"
+                        local:MvxBind="Text User.LastName; Error Errors['LastName']"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+        </GridLayout>
+    </ScrollView>
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/camera"
+        android:background="@null"
+        android:alpha="0.4"
+        android:scaleType="fitCenter"
+        local:MvxBind="Click ChangeProfilePictureCommand"
+        local:layout_anchorGravity="center"
+        local:layout_anchor="@id/mvxImageView1" />
+</android.support.design.widget.CoordinatorLayout>

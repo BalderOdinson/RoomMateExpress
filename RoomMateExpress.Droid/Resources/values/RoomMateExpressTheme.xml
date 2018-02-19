@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+
+  <style name="RoomMateExpressTheme" parent="RoomMateExpressTheme.Base">
+  </style>
+
+  <style name="RoomMateExpressTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+    <item name="colorPrimary">@color/White</item>
+    <item name="colorPrimaryDark">@color/White</item>
+    <item name="colorAccent">@color/LightBlue</item>
+    <item name="android:windowBackground">@color/White</item>
+  </style>
+  
+  <style name="RoomMateExpressThemeInvert" parent="RoomMateExpressThemeInvert.Base">
+  </style>
+  
+  <style name="RoomMateExpressThemeInvert.Base" parent="Theme.AppCompat.Light.NoActionBar">
+    <item name="colorPrimary">@color/LightBlue</item>
+    <item name="colorPrimaryDark">@color/LightBlue</item>
+    <item name="colorAccent">@color/White</item>
+    <item name="android:windowBackground">@color/White</item>
+  </style>
+
+  <style name="RoomMateExpressThemeIntro" parent="RoomMateExpressThemeIntro.Base">
+  </style>
+
+  <style name="RoomMateExpressThemeIntro.Base" parent="Theme.AppCompat.Light.NoActionBar">
+    <item name="colorPrimary">@color/White</item>
+    <item name="colorPrimaryDark">@color/White</item>
+    <item name="colorAccent">@color/LightBlue</item>
+    <item name="android:windowBackground">@color/White</item>
+  </style>
+</resources>

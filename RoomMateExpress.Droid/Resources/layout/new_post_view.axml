@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:layout_width="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:minHeight="25px"
+        android:minWidth="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="@color/White">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            local:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            local:navigationIcon="@drawable/arrow_left"
+            local:title="@string/newPost"
+            local:contentInsetEnd="15dp"
+            local:contentInsetLeft="0dp"
+            local:contentInsetStart="0dp"
+            local:contentInsetStartWithNavigation="0dp" />
+    </android.support.design.widget.AppBarLayout>
+    <ScrollView
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:id="@+id/relativeLayout1">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/title"
+                android:textSize="16sp"
+                android:hint="@string/titleText"
+                local:MvxBind="Text Post.Title; Error Errors['Title']" />
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_gravity="left"
+                android:gravity="start">
+                <TextView
+                    android:text="@string/accommodation_post"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/accomText"
+                    android:layout_gravity="start"
+                    android:layout_marginBottom="10dp" />
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/accommGroup">
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/withAccomodation"
+                        android:id="@+id/radioButton1"
+                        android:checked="false"
+                        local:MvxBind="Checked IsWithAccomodation" />
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/withoutAccomodation"
+                        android:id="@+id/radioButton2"
+                        local:MvxBind="Checked IsWithoutAccomodation" />
+                </RadioGroup>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                local:MvxBind="Visibility Visibility(IsWithAccomodation)"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <View
+                    android:id="@+id/primerdivisor"
+                    android:layout_height="2dp"
+                    android:layout_width="fill_parent"
+                    android:background="@color/LightBlue"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="30dp" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/accommTypeLayout">
+                    <TextView
+                        android:text="@string/accommodationType"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/accommTypeText"
+                        android:layout_marginBottom="10dp" />
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/radioGroup1">
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/apartment"
+                            android:id="@+id/radioButton3"
+                            local:MvxBind="Checked WithApartment" />
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/house"
+                            android:id="@+id/radioButton4"
+                            local:MvxBind="Checked WithHouse" />
+                    </RadioGroup>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="@string/rentPrice"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/priceText" />
+                    <EditText
+                        android:inputType="numberDecimal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/price"
+                        android:width="80dp"
+                        android:textSize="12sp"
+                        android:layout_marginLeft="10dp"
+                        android:maxWidth="80dp"
+                        local:MvxBind="Text Post.Price" />
+                    <TextView
+                        android:text="@string/currency"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/currency"
+                        android:layout_marginLeft="15dp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="30dp">
+                    <TextView
+                        android:text="@string/petsAllowed"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/allowPetsText"
+                        android:layout_marginLeft="50dp" />
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/petTolerateGroup"
+                        android:orientation="horizontal">
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/yes"
+                            android:id="@+id/yesPets"
+                            local:MvxBind="Checked Post.ArePetsAllowed" />
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/no"
+                            android:id="@+id/noPets"
+                            local:MvxBind="Checked InvertedBool(Post.ArePetsAllowed)" />
+                    </RadioGroup>
+                </LinearLayout>
+                <View
+                    android:id="@+id/primerdivisor2"
+                    android:layout_height="2dp"
+                    android:layout_width="fill_parent"
+                    android:background="@color/LightBlue"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="30dp" />
+            </LinearLayout>
+            <EditText
+                android:inputType="textMultiLine"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/description"
+                android:hint="@string/descriptionText"
+                android:textSize="12sp"
+                local:MvxBind="Text Post.Description; Error Errors['Description']" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp">
+                <TextView
+                    android:text="@string/maxRoommate"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/roommateNumText" />
+                <EditText
+                    android:inputType="number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/numOfRoomates"
+                    android:textSize="12sp"
+                    android:width="60dp"
+                    android:maxWidth="60dp"
+                    android:layout_marginLeft="5dp"
+                    local:MvxBind="Text Post.NumberOfRoommates; Error Errors['NumberOfRoommates']" />
+            </LinearLayout>
+            <GridLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:columnCount="2"
+                android:rowCount="2"
+                android:layout_marginTop="15dp">
+                <TextView
+                    android:text="@string/wantedGender"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_column="0"
+                    android:layout_row="0"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/genderText"
+                    android:layout_columnWeight="5" />
+                <TextView
+                    android:text="@string/tolerateSmoking"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_column="1"
+                    android:layout_row="0"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/smokerText"
+                    android:layout_columnWeight="5" />
+                <RadioGroup
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_column="0"
+                    android:layout_row="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/genderGroup"
+                    android:layout_columnWeight="5">
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/female"
+                        android:id="@+id/femaleButton"
+                        local:MvxBind="Checked IsFemale" />
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/male"
+                        android:id="@+id/maleButton"
+                        local:MvxBind="Checked IsMale" />
+                  <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/any"
+                    android:id="@+id/anyButton"
+                    local:MvxBind="Checked IsAny" />
+                </RadioGroup>
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_row="1"
+                    android:id="@+id/smokingGroup"
+                    android:layout_columnWeight="5">
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/yes"
+                        android:id="@+id/radioButton5"
+                        local:MvxBind="Checked Post.IsSmokingAllowed" />
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/no"
+                        android:id="@+id/radioButton6"
+                        local:MvxBind="Checked InvertedBool(Post.IsSmokingAllowed)" />
+                </RadioGroup>
+            </GridLayout>
+            <GridLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:id="@+id/petRelativeLayout"
+                android:columnCount="3"
+                android:rowCount="4"
+                android:layout_marginTop="30dp">
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:id="@+id/textView1"
+                    android:layout_column="1"
+                    android:layout_row="0"
+                    android:text="@string/pets"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_columnWeight="5" />
+                <CheckBox
+                    android:text="@string/cat"
+                    android:layout_column="1"
+                    android:layout_row="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBox1"
+                    local:MvxBind="Checked HaveCat"
+                    android:layout_marginRight="10dp"
+                    android:layout_columnWeight="5" />
+                <CheckBox
+                    android:text="@string/reptile"
+                    android:layout_width="wrap_content"
+                    android:layout_row="2"
+                    android:layout_column="1"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBox2"
+                    local:MvxBind="Checked HaveReptile"
+                    android:layout_columnWeight="5" />
+                <CheckBox
+                    android:text="@string/other"
+                    android:layout_width="wrap_content"
+                    android:layout_row="3"
+                    android:layout_column="1"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBox3"
+                    local:MvxBind="Checked HaveOther"
+                    android:layout_columnWeight="5" />
+                <CheckBox
+                    android:text="@string/bird"
+                    android:layout_width="wrap_content"
+                    android:layout_column="0"
+                    android:layout_row="1"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBox4"
+                    local:MvxBind="Checked HaveBird"
+                    android:layout_columnWeight="5" />
+                <CheckBox
+                    android:text="@string/fish"
+                    android:layout_row="2"
+                    android:layout_column="0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBox5"
+                    local:MvxBind="Checked HaveFish"
+                    android:layout_columnWeight="5" />
+                <CheckBox
+                    android:text="@string/dog"
+                    android:layout_row="1"
+                    android:layout_column="2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBox7"
+                    local:MvxBind="Checked HaveDog"
+                    android:layout_columnWeight="5" />
+                <CheckBox
+                    android:text="@string/smallAnimals"
+                    android:layout_row="2"
+                    android:layout_column="2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBox8"
+                    local:MvxBind="Checked HaveSmallAnimals"
+                    android:layout_columnWeight="5" />
+            </GridLayout>
+            <View
+                android:id="@+id/primerdivisor3"
+                android:layout_height="2dp"
+                android:layout_width="fill_parent"
+                android:background="@color/LightBlue"
+                android:layout_marginTop="30dp" />
+            <TextView
+                android:layout_marginTop="30dp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:id="@+id/pickCityText"
+                android:layout_gravity="center_horizontal"
+              android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/pickCity" />
+          <MvvmCross.Binding.Droid.Views.MvxSpinner
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            local:MvxBind="ItemsSource Cities; SelectedItem SelectedCity"/>
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:id="@+id/neighborhoodText"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/neighborhoods" />
+            <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
+                android:id="@+id/neighborhoodRecyclerView"
+                android:layout_height="150dp"
+                android:layout_width="match_parent"
+                android:layout_gravity="center_horizontal"
+                local:MvxItemTemplate="@layout/neighborhood_item"
+                local:MvxBind="ItemsSource NeighborhoodItems"
+                android:scrollbars="vertical" />
+            <View
+                android:id="@+id/primerdivisor4"
+                android:layout_height="2dp"
+                android:layout_width="fill_parent"
+                android:background="@color/LightBlue"
+                android:layout_marginTop="30dp"
+                local:MvxBind="Visibility Visibility(IsWithAccomodation)"/>
+            <TextView
+                android:layout_marginTop="30dp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:id="@+id/postPictureText"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/postPictures"
+                local:MvxBind="Visibility Visibility(IsWithAccomodation)"/>
+          <RelativeLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            local:MvxBind="Visibility Visibility(IsWithAccomodation)">
+            <ImageButton
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:src="@drawable/camera"
+              android:background="@null"
+              android:id="@+id/addPictureButton"
+              android:tint="@color/LightBlue"
+              local:MvxBind="Click AddPostImageCommand"
+              android:layout_alignParentEnd="true"
+              android:layout_marginRight="16dp"/>
+          </RelativeLayout>
+                <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
+                    android:id="@+id/pictureRecyclerView"
+                    android:layout_marginTop="12dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="120dp"
+                    android:scrollbars="horizontal"
+                    local:MvxItemTemplate="@layout/new_post_picture_item"
+                    local:MvxBind="ItemsSource PostPictureItems; Visibility Visibility(IsWithAccomodation)" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

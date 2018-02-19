@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+
+  <style name="RoomMateExpressTheme" parent="RoomMateExpressTheme.Base">
+    <item name="android:statusBarColor">@color/LightBlue</item>
+    <item name="android:textColorPrimary">@color/Gray</item>
+  </style>
+
+  <style name="RoomMateExpressThemeInvert" parent="RoomMateExpressThemeInvert.Base">
+    <item name="android:statusBarColor">@color/LightBlue</item>
+    <item name="android:textColorPrimary">@color/Gray</item>
+  </style>
+
+  <style name="RoomMateExpressThemeIntro" parent="RoomMateExpressThemeIntro.Base">
+    <item name="android:statusBarColor">@color/LightBlue</item>
+    <item name="android:textColorPrimary">@color/Gray</item>
+  </style>
+  
+</resources>

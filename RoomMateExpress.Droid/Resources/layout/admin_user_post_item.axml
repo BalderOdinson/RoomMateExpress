@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:padding="10dp"
+    android:layout_height="wrap_content">
+  <android.support.v7.widget.CardView
+      android:minWidth="25px"
+      android:minHeight="25px"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/cardView1">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/relativeLayout1">
+      <TextView
+          android:text="Large Text"
+          android:textAppearance="?android:attr/textAppearanceMedium"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/titleText"
+          android:layout_marginBottom="7dp"
+          android:layout_marginLeft="25dp"
+          android:layout_marginTop="10dp"
+          local:MvxBind="Text Post.Title" />
+      <TextView
+          android:text="Medium Text"
+          android:textAppearance="?android:attr/textAppearanceSmall"
+          android:id="@+id/descriptionText"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_below="@id/titleText"
+          android:layout_marginBottom="6dp"
+          android:layout_marginLeft="10dp"
+          android:ellipsize="end"
+          local:MvxBind="Text Post.Description; Click ViewPostCommand" />
+      <CheckBox
+          android:layout_width="49.5dp"
+          android:layout_height="35dp"
+          android:layout_toRightOf="@id/descriptionText"
+          android:id="@+id/checkBox1"
+          android:layout_below="@id/descriptionText"
+          android:button="@drawable/asl_trimclip_heart"
+          android:buttonTint="@color/LightBlue"
+          android:layout_alignStart="@id/descriptionText"
+          android:checked="true"
+        android:clickable="false"/>
+      <TextView
+          android:text="555"
+          android:textAppearance="?android:attr/textAppearanceSmall"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_toRightOf="@id/checkBox1"
+          android:id="@+id/numOfLikes"
+          android:layout_alignBottom="@id/checkBox1"
+          android:layout_alignBaseline="@id/checkBox1"
+          local:MvxBind="Text Post.LikesCount" />
+      <TextView
+          android:text="@string/comments"
+          android:textAppearance="?android:attr/textAppearanceSmall"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_toRightOf="@id/numOfLikes"
+          android:id="@+id/commentText"
+          android:layout_alignBottom="@id/checkBox1"
+          android:layout_alignBaseline="@id/checkBox1"
+          android:layout_marginLeft="12dp"
+          local:MvxBind="Click ViewCommentsCommand"/>
+      <TextView
+          android:text="444"
+          android:textAppearance="?android:attr/textAppearanceSmall"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/commentsCount"
+          android:layout_alignBaseline="@id/checkBox1"
+          android:layout_alignBottom="@id/checkBox1"
+          android:layout_toRightOf="@id/CommentText"
+          android:layout_marginLeft="7.5dp"
+          local:MvxBind="Text Post.CommentsCount" />
+    </RelativeLayout>
+  </android.support.v7.widget.CardView>
+</LinearLayout>

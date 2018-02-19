@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="25dp">
+        <TextView
+            android:text="@string/rateRoommate"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView1"
+            android:gravity="center"
+            android:layout_marginBottom="7.5dp" />
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:progressTint="@color/LightBlue"
+            android:max="5"
+            local:MvxBind="Rating CommentForProfile.Grade"
+            android:layout_gravity="center_horizontal"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="15.0dp"
+            android:layout_marginLeft="15.0dp"
+            android:stepSize="1"
+            android:scaleX="0.7"
+            android:scaleY="0.7" />
+        <EditText
+            android:inputType="textMultiLine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText1"
+            android:hint="@string/writeComment"
+            local:MvxBind="Text CommentForProfile.Text"/>
+    </LinearLayout>
+    <ImageButton
+        android:src="@drawable/check_blue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton1"
+        android:layout_gravity="center_vertical"
+        local:layout_anchorGravity="right|center_vertical"
+        local:layout_anchor="@id/editText1"
+        android:background="@null"
+        local:MvxBind="Click RateCommand; Visibility StringToVisibility(CommentForProfile.Text)"/>
+</android.support.design.widget.CoordinatorLayout>

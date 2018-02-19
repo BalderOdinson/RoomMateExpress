@@ -1,0 +1,36 @@
+{
+  "name": "bootstrap-navbar",
+  "version": "0.0.4",
+  "homepage": "https://github.com/alingam/bootstrap-navbar",
+  "description": "polymer component for bootstrap navbar",
+  "main": "src/bootstrap-navbar.html",
+  "keywords": [
+    "custom-elements",
+    "web-components",
+    "bootstrap",
+    "polymer1.0",
+    "polymer",
+    "nav",
+    "navbar",
+    "navigation",
+    "menu"
+  ],
+  "authors": [
+    "alingam"
+  ],
+  "license": "MIT",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.0.0",
+    "webcomponentsjs": "~0.7.18",
+    "style-bootstrap": "*",
+    "jquery": "~2.1.4"
+  }
+}

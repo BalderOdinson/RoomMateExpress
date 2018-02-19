@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.2.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.0.1" />
+    <PackageReference Include="MvvmCross.Plugin.Color" Version="5.6.3" />
+    <PackageReference Include="MvvmCross.Plugin.Messenger" Version="5.6.3" />
+    <PackageReference Include="MvvmCross.Plugin.PictureChooser" Version="5.6.3" />
+    <PackageReference Include="MvvmCross.Plugin.Visibility" Version="5.6.3" />
+    <PackageReference Include="MvvmCross.StarterPack" Version="5.6.3" />
+    <PackageReference Include="MvvmValidation" Version="3.1.0" />
+    <PackageReference Include="Refit" Version="4.1.0" />
+    <PackageReference Include="System.Reactive" Version="3.1.1" />
+    <PackageReference Include="Xamarin.FFImageLoading" Version="2.3.4" />
+    <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.3.4" />
+  </ItemGroup>
+
+</Project>

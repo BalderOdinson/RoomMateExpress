@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:minHeight="25px"
+        android:minWidth="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="@color/White"
+        local:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/backToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:minHeight="?attr/actionBarSize"
+            local:theme="@style/ThemeOverlay.AppCompat.Light"
+            local:navigationIcon="@drawable/arrow_left"
+            local:title="@string/comments_title"
+            android:foregroundTint="@color/Gray"
+            local:contentInsetEnd="15dp"
+            local:contentInsetLeft="0dp"
+            local:contentInsetStart="0dp"
+            local:contentInsetStartWithNavigation="0dp" />
+    </android.support.design.widget.AppBarLayout>
+  <MvvmCross.Droid.Support.V4.MvxSwipeRefreshLayout
+      android:id="@+id/refresher"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        local:layout_behavior="@string/appbar_scrolling_view_behavior"
+        local:MvxBind="Refreshing IsRefreshing; RefreshCommand ReloadCommand">
+    <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
+        android:id="@+id/recyclerView"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            local:MvxItemTemplate="@layout/user_comment_item"
+            local:MvxBind="ItemsSource UserCommentItemViewModels" />
+    </MvvmCross.Droid.Support.V4.MvxSwipeRefreshLayout>
+</LinearLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="6dp">
+  <FFImageLoading.Cross.MvxCachedImageView
+      android:id="@+id/mvxImageView1"
+        android:layout_rowSpan="2"
+        android:layout_row="0"
+        android:layout_column="0"
+        android:clickable="true"
+        android:src="@drawable/account_icon"
+        local:MvxBind="Transformations Transformations; ImagePath PostComment.User.ProfilePictureUrl; Click OpenProfileCommand; LoadingPlaceholderImagePath 'res:loading.gif'; ErrorPlaceholderImagePath 'res:error_placeholder.png'"
+        android:layout_height="40dp"
+        android:layout_width="40dp"
+        android:maxHeight="40dp"
+        android:maxWidth="40dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/gridLayout1"
+        android:orientation="vertical"
+        android:background="@drawable/comment_rectangle"
+        android:layout_marginLeft="6.5dp">
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/textView1"
+            android:textColor="@color/Black"
+            local:MvxBind="Text Format('{0} {1}', PostComment.User.FirstName, PostComment.User.LastName)"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp" />
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:id="@+id/textView2"
+            local:MvxBind="Text PostComment.Text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp" />
+    </LinearLayout>
+</LinearLayout>

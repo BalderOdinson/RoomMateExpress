@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:id="@+id/dialogScroller"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:minWidth="1000dp"
+        android:paddingBottom="25dp">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minWidth="25px"
+            android:minHeight="25px">
+            <TextView
+                android:text="@string/sortBy"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView1"
+                style="@style/MainTextViewStyle"
+                android:layout_marginTop="10.0dp" />
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioGroup1"
+                android:layout_marginLeft="25.0dp"
+                android:layout_marginRight="25.0dp">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/dateAdded"
+                    android:id="@+id/radioButton1"
+                    local:MvxBind="Checked IsDateSorting" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/popularity"
+                    android:id="@+id/radioButton2"
+                    local:MvxBind="Checked IsPopularitySorting" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/byPrice"
+                    android:id="@+id/radioButton3"
+                    local:MvxBind="Checked IsPriceSorting" />
+                <RadioButton
+                    android:text="@string/userRating"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radioButton4"
+                    local:MvxBind="Checked IsUserRatingSorting" />
+            </RadioGroup>
+            <TextView
+                android:text="@string/sort"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView1"
+                style="@style/MainTextViewStyle"
+                android:layout_marginTop="10.0dp" />
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioGroup2"
+                android:layout_marginLeft="25.0dp"
+                android:layout_marginRight="25.0dp">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ascending"
+                    android:id="@+id/radioButton5"
+                    local:MvxBind="Checked IsAscendingSorting" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/descending"
+                    android:id="@+id/radioButton6"
+                    local:MvxBind="Checked InvertedBool(IsAscendingSorting)" />
+            </RadioGroup>
+            <TextView
+                android:text="@string/filter"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView1"
+                style="@style/MainTextViewStyle"
+                android:layout_marginTop="10.0dp" />
+            <CheckBox
+                android:text="@string/accommodation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkBox1"
+                android:layout_marginLeft="25.0dp"
+                android:layout_marginRight="25.0dp"
+                local:MvxBind="Checked HasAccommodationFilter" />
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioGroup3"
+                android:layout_marginLeft="35.0dp"
+                android:layout_marginRight="35.0dp"
+                local:MvxBind="Visibility Visibility(HasAccommodationFilter)">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/with"
+                    android:id="@+id/radioButton7"
+                    local:MvxBind="Checked IsWithAccommodation" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/without"
+                    android:id="@+id/radioButton8"
+                    local:MvxBind="Checked InvertedBool(IsWithAccommodation)" />
+            </RadioGroup>
+            <CheckBox
+                android:text="@string/price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkBox2"
+                android:layout_marginLeft="25.0dp"
+                android:layout_marginRight="25.0dp"
+                local:MvxBind="Checked HasPriceFilter" />
+            <SeekBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/seekBar1"
+                android:layout_marginRight="25.0dp"
+                android:layout_marginLeft="30.0dp"
+                android:layout_marginTop="4.5dp"
+                local:MvxBind="Max PriceTo; Progress PriceFrom; Visibility Visibility(HasPriceFilter)" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout2"
+                android:gravity="center"
+                local:MvxBind="Visibility Visibility(HasPriceFilter)">
+                <TextView
+                    android:text="@string/from"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textView5" />
+                <TextView
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:id="@+id/textView2"
+                    style="@style/MainTextViewStyle"
+                    local:MvxBind="Text PriceFrom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="5.0dp"
+                    android:layout_marginLeft="5.0dp" />
+                <TextView
+                    android:text="@string/currency"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textView6" />
+            </LinearLayout>
+            <SeekBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/seekBar1"
+                android:layout_marginRight="25.0dp"
+                android:layout_marginLeft="30.0dp"
+                android:layout_marginTop="4.5dp"
+                local:MvxBind="Max Max; Progress PriceTo; Visibility Visibility(HasPriceFilter)" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout1"
+                android:layout_marginBottom="15.5dp"
+                android:gravity="center"
+                local:MvxBind="Visibility Visibility(HasPriceFilter)">
+                <TextView
+                    android:text="@string/to"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textView3" />
+                <TextView
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:id="@+id/textView2"
+                    style="@style/MainTextViewStyle"
+                    local:MvxBind="Text PriceTo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5.0dp"
+                    android:layout_marginRight="5.0dp" />
+                <TextView
+                    android:text="@string/currency"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textView4" />
+            </LinearLayout>
+          <CheckBox
+            android:text="@string/cityFilter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox3"
+            android:layout_marginLeft="25.0dp"
+            android:layout_marginRight="25.0dp"
+            local:MvxBind="Checked HasCityFilter" />
+          <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout3"
+            android:gravity="center"
+            local:MvxBind="Visibility Visibility(HasCityFilter)">
+            <MvvmCross.Binding.Droid.Views.MvxSpinner
+              android:layout_width="wrap_content"
+              android:layout_gravity="center_horizontal"
+              android:gravity="center_horizontal"
+              android:layout_height="wrap_content"
+              local:MvxBind="ItemsSource CitiesBaseCityViewModels; SelectedItem SelectedCity"/>
+          </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="16dp"
+        android:src="@drawable/check"
+        local:layout_anchor="@id/dialogScroller"
+        local:layout_anchorGravity="bottom|right|end"
+        local:MvxBind="Click CloseCommand" />
+</android.support.design.widget.CoordinatorLayout>

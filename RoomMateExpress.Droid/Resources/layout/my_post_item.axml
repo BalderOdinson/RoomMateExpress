@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                                    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/cardView1">
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/gridLayout1"
+        android:padding="25dp"
+        android:columnCount="3"
+        android:rowCount="3"
+        android:useDefaultMargins="true">
+        <TextView
+            android:text="Large Text"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/textView1"
+            android:layout_column="0"
+            android:layout_columnSpan="2"
+            android:layout_columnWeight="1"
+            android:layout_row="0"
+            android:ellipsize="end"
+            local:MvxBind="Text Post.Title"/>
+        <TextView
+            android:text="Medium Text"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/textView2"
+            android:ellipsize="end"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_columnSpan="3"
+            android:layout_columnWeight="1"
+            local:MvxBind="Text Post.Description"/>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:id="@+id/linearLayout1"
+            android:layout_column="0"
+            android:layout_columnSpan="3"
+            android:layout_columnWeight="1"
+            android:layout_row="2">
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/checkBox1"
+                android:clickable="false"
+                android:button="@drawable/asl_trimclip_heart"
+                android:buttonTint="@color/LightBlue"
+                android:checked="true"
+                android:layout_marginRight="7.5dp" />
+            <TextView
+                android:text="Small Text"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/textView3"
+                android:layout_gravity="center"
+                android:gravity="center_vertical"
+                android:layout_marginRight="10dp"
+                local:MvxBind="Text Post.LikesCount"/>
+            <TextView
+                android:text="@string/comments"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/textView4"
+                android:gravity="center"
+                local:MvxBind="Click ViewCommentsCommand"/>
+            <TextView
+                android:text="Small Text"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/textView5"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="7.5dp"
+                local:MvxBind="Text Post.CommentsCount"/>
+        </LinearLayout>
+        <ImageButton
+            android:src="@drawable/pencil"
+            android:id="@+id/imageButton1"
+            android:background="@null"
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:layout_row="0"
+            android:tint="#ffadd8e6"
+            android:layout_gravity="end"
+            local:MvxBind="Click EditPostCommand"/>
+        <ImageButton
+            android:src="@drawable/close"
+            android:id="@+id/imageButton2"
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:layout_row="2"
+            android:background="@null"
+            android:tint="#ffadd8e6"
+            android:layout_gravity="end"
+            local:MvxBind="Click DeletePostCommand"/>
+    </GridLayout>
+</android.support.v7.widget.CardView>

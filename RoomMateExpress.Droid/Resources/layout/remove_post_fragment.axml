@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="15dp">
+    <TextView
+        android:text="@string/removePost"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="30dp" />
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/gridLayout1"
+        android:columnCount="2"
+        android:rowCount="1">
+        <Button
+            android:id="@+id/button1"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:background="@null"
+            android:text="@string/yes"
+            local:MvxBind="Click RemovePostCommand" />
+        <Button
+            android:text="@string/no"
+            android:id="@+id/button2"
+            android:background="@null"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            local:MvxBind="Click CloseCommand" />
+    </GridLayout>
+</LinearLayout>

@@ -1,0 +1,29 @@
+﻿@model RoomMateExpressWebApi.Models.AccountViewModels.ConfirmationViewModel
+
+@{
+    ViewBag.Title = Model.ViewTitle;
+    Layout = "_Layout";
+}
+
+<body>
+<div class="mydiv">
+    <style>
+        .mydiv {
+            margin-top: 10px;
+        }
+
+        h1 {
+            color: #97BBF4;
+        }
+
+        p {
+            color: #797979
+        }
+
+    </style>
+    <h1> @Model.Title </h1>
+    <p>
+        @Model.Message
+    </p>
+</div>
+</body>

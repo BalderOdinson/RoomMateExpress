@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background2"
+    android:gravity="center">
+    <EditText
+        android:inputType="textEmailAddress"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText1"
+        android:hint="@string/email"
+        android:layout_marginBottom="19.0dp"
+        android:layout_marginTop="20.5dp"
+        style="@style/IntroEditTextStyle"
+        local:MvxBind="Text Email; Error Errors['Email']" />
+    <EditText
+        android:inputType="textEmailAddress"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="19.0dp"
+        android:id="@+id/editText2"
+        style="@style/IntroEditTextStyle"
+        android:hint="@string/confirm_email"
+        local:MvxBind="Text ConfirmEmail; Error Errors['ConfirmEmail']" />
+    <EditText
+        android:inputType="textPassword"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="19.0dp"
+        android:id="@+id/editText3"
+        style="@style/IntroEditTextStyle"
+        android:hint="@string/password"
+        local:MvxBind="Text Password; Error Errors['Password']" />
+    <EditText
+        android:inputType="textPassword"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="19.0dp"
+        android:id="@+id/editText4"
+        style="@style/IntroEditTextStyle"
+        android:hint="@string/confirm_password"
+        local:MvxBind="Text ConfirmPassword; Error Errors['ConfirmPassword']" />
+    <Button
+        android:text="@string/register"
+        android:id="@+id/button1"
+        style="@style/MainButtonStyle"
+        local:MvxBind="Click RegisterCommand" />
+</LinearLayout>

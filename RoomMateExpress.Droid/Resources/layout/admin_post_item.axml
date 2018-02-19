@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                                        xmlns:local="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px">
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/gridLayout1"
+            android:columnCount="3"
+            android:rowCount="3"
+            android:padding="25dp">
+          <FFImageLoading.Cross.MvxCachedImageView
+              android:id="@+id/mvxImageView1"
+                android:layout_rowSpan="2"
+                android:layout_row="0"
+                android:layout_column="0"
+                android:src="@drawable/account_icon"
+                local:MvxBind="ImagePath Post.User.ProfilePictureUrl; LoadingPlaceholderImagePath 'res:loading.gif'; ErrorPlaceholderImagePath 'res:error_placeholder.png'; Click OpenProfileCommand"
+                android:layout_height="60dp"
+                android:layout_width="60dp"
+                android:maxHeight="60dp"
+                android:maxWidth="60dp"
+                android:layout_marginLeft="3.5dp"
+                android:layout_marginTop="2.5dp"
+                android:clickable="true"
+                android:layout_columnWeight="1"
+                android:layout_gravity="left"
+                android:scaleType="centerCrop"/>
+            <TextView
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/textView1"
+                android:layout_column="1"
+                android:layout_row="0"
+                android:layout_marginLeft="11.0dp"
+                android:layout_marginTop="0.0dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/Black"
+                local:MvxBind="Text Post.Title; Click OpenPostCommand"
+                android:layout_width="0dp"
+                android:layout_columnWeight="2"
+                android:layout_gravity="fill_horizontal" />
+            <TextView
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:id="@+id/textView2"
+                android:layout_column="1"
+                android:layout_row="1"
+                android:layout_marginLeft="12.0dp"
+                android:layout_width="0dp"
+                android:layout_marginTop="6.0dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:layout_columnWeight="2"
+                android:layout_gravity="fill_horizontal"
+                local:MvxBind="Text Format('{0} {1}  {2}☆', Post.User.FirstName, Post.User.LastName, Post.User.AverageGrade)" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:id="@+id/linearLayout1"
+                android:layout_column="0"
+                android:layout_row="2"
+                android:layout_columnSpan="2"
+                android:layout_columnWeight="1">
+                <CheckBox
+                    android:layout_width="48.0dp"
+                    android:layout_height="42.0dp"
+                    android:button="@drawable/asl_trimclip_heart"
+                    android:buttonTint="@color/LightBlue"
+                    android:id="@+id/checkBox1"
+                    android:gravity="center"
+                    android:layout_marginRight="0.0dp"
+                    android:checked="true"
+                    android:clickable="false" />
+                <TextView
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textView4"
+                    android:gravity="fill_vertical"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    local:MvxBind="Text Post.LikesCount" />
+                <TextView
+                    android:text="@string/comments"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textView6"
+                    android:gravity="center"
+                    android:layout_marginLeft="12.0dp"
+                    android:clickable="true"
+                    local:MvxBind="Click OpenCommentsCommand" />
+                <TextView
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textView7"
+                    android:gravity="center"
+                    android:layout_marginLeft="2dp"
+                    local:MvxBind="Text Post.CommentsCount" />
+            </LinearLayout>
+            <ImageButton
+                android:src="@drawable/close"
+                android:id="@+id/imageButton1"
+                android:background="@null"
+                android:layout_gravity="center_horizontal"
+                android:layout_row="1"
+                android:layout_column="2"
+                android:layout_rowSpan="2"
+                local:MvxBind="Click RemovePostDialogCommand"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginRight="30dp"
+                android:tint="#ffa9a9a9" />
+        </GridLayout>
+    </android.support.v7.widget.CardView>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <style name="Theme.Splash" parent="Theme.Splash.Base">
+  </style>
+
+  <style name="Theme.Splash.Base" parent="Theme.AppCompat.Light.NoActionBar">
+    <item name="android:windowBackground">@drawable/logo</item>
+    <item name="colorPrimary">@color/White</item>
+    <item name="colorPrimaryDark">@color/White</item>
+    <item name="colorAccent">@color/LightBlue</item>
+  </style>
+</resources>

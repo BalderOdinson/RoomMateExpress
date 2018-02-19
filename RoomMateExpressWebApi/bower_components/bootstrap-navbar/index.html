@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bootstrap-navbar</title>
+    <link rel="import" href="src/bootstrap-navbar.html">
+    <!--Jquery is needed for mobile expand and collapse-->
+    <script src="../jquery/dist/jquery.min.js"></script>
+    <style>
+        html {
+            font-family: sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+        body {
+            margin: 0;
+        }
+        .main-container{
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <bootstrap-navbar menu-type="navbar-fixed-top" submit-value="Login" is-form=true form-position="right" brand-name="Bootstrap-Menu" brand-url="https://www.google.com/">
+        <li><a href="#">Link One</a></li>
+        <li><a href="#">Link Two</a></li>
+        <li><a href="#">Link Three</a></li>
+    </bootstrap-navbar>
+
+    <div class="container main-container">
+        <h2>Polymer Bootstrap Menu Example</h2>
+        <h4>Menu Types</h4>
+        <ul>
+            <li>Static Top (menu-type= 'navbar-static-top')</li>
+            <li>Fixed Top (menu-type= 'navbar-fixed-top')</li>
+        </ul>
+        <h4>Brand Name</h4>
+        <p>Website name you want to display (brand-name= "Bootstrap-Menu")</p>
+        <h4>Brand Url</h4>
+        <p>Website url you want to point to (brand-url= "https://www.google.com/")</p>
+        <h4>Search form in the menu</h4>
+        <p>To display search form in the menu (is-form= true)</p>
+        <p>Form position in the menu (form-position= "right")</p>
+        <p>Form submit value to display (submit-value= "Login")</p>
+        <h4>Is bootstrap included in your project (is-bootstrap=true)</h4>
+        <h4>Note</h4>
+        <p>Include jquery for mobile navigation collapse and expand to work.</p>
+    </div>
+
+</body>
+</html>
